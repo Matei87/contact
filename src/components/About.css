@@ -1,0 +1,16 @@
+div.about-page {
+    text-align: center;
+}
+
+div.about-page p:last-of-type {
+    color: #fff3cd !important;
+}
+
+@media (max-width: 575.98px) {
+    div.about-page {
+        text-align: center;
+    }
+    div.about-page h1 {
+        font-size: 1.75rem !important;
+    }
+}
