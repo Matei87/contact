@@ -35,7 +35,7 @@ let Header = (props) => {
         );
 };
 
-// Header.defaultProps = {
+// Navbar.defaultProps = {
 //     branding: 'Contact Manager'
 // };
 
