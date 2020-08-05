@@ -6,11 +6,6 @@ import axios from 'axios';
 import '../Contact.css';
 
 class Contact extends React.Component {
-    // static propTypes = {
-    //     name: PropTypes.string.isRequired,
-    //     email: PropTypes.string.isRequired
-    // };
-
     state = {
         showContactInfo: false
     };
@@ -18,10 +13,9 @@ class Contact extends React.Component {
     onDeleteClick = async (id, dispatch) => {
         try {
             await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
-            dispatch( {type: 'DELETE_CONTACT', payload: id} );
+            dispatch({ type: 'DELETE_CONTACT', payload: id });
         } catch (e) {
-            dispatch( {type: 'DELETE_CONTACT', payload: id} );
-            // console.log(e);
+            dispatch({ type: 'DELETE_CONTACT', payload: id });
         }
 
 
@@ -52,7 +46,7 @@ class Contact extends React.Component {
 
         return (
             <Consumer>
-                { value => {
+                {value => {
                     const { dispatch } = value;
 
                     return (
@@ -60,9 +54,11 @@ class Contact extends React.Component {
                             <h4>
                                 {name}{' '}
                                 <i
-                                    onClick={ () =>
-                                        this.setState({ showContactInfo:
-                                                !this.state.showContactInfo })
+                                    onClick={() =>
+                                        this.setState({
+                                            showContactInfo:
+                                                !this.state.showContactInfo
+                                        })
                                     }
                                     className="fas fa-sort-down"
                                     style={sortDownStyle}
@@ -79,10 +75,10 @@ class Contact extends React.Component {
                                     />
                                 </Link>
                             </h4>
-                            { showContactInfo ? (<ul className="list-group">
+                            {showContactInfo ? (<ul className="list-group">
                                 <li className="list-group-item">Email: {email}</li>
                                 <li className="list-group-item">Phone: {phone}</li>
-                            </ul>) : null }
+                            </ul>) : null}
                         </div>
                     );
                 }}
